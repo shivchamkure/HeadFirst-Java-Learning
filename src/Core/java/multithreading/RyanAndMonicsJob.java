@@ -11,15 +11,19 @@ class BankAccount {
     }
 }
 class RyanAndMonicaJob implements Runnable {
+    //Instance field so that other methods can access this.
+    //One important distinction between class-level variable and local variable is that
+    // access specifiers can be applied to class-level variables only and not to local variables.
+
     private  BankAccount account = new BankAccount();
-    //One important distinction between class-level variable
-    //and local variable is that access specifiers can be applied to class-level variables only and not to local variables.
 
     public static void main (String [] args) {
 
         RyanAndMonicaJob theJob = new RyanAndMonicaJob();
+        //Create Thread Objects
         Thread one = new Thread(theJob);
         Thread two = new Thread(theJob);
+        //Set Thread name and start both threads
         one.setName("Ryan");
         two.setName("Monica");
         one.start();
